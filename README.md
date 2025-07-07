@@ -1,5 +1,6 @@
 # Examenfinal-DesarrolloSoftware
-
+**Alumno:** Edy Saul Serrano Arostegui
+**Codigo:** 20211229B
 ## Estructura del proyecto:
 
 ```
@@ -11,19 +12,20 @@ PC4-Proyecto-14/
 │   ├── GestionProducto/         
 │   │   ├── Dockerfile
 │   │   ├── requirements.txt
-│   │   └── app1/
-│   │       └── appA.py      
+│   │   └── app/
+│   │       └── main.py
+│   │       └── test/
+│   │           └── test_productos.py       
 │   └── ManejoUsuario/                   
 │       ├── Dockerfile
 │       ├── requirements.txt
-│       └── app2/
-│           └── appB.py       
+│       └── app/
+│           └── main.py
+│           └── test/
+│               └── test_usuarios.py         
 └── scripts/
-    └── pltlint.sh   
-└── tests/
-    └── test_inicial
+│    └── pltlint.sh   
 ├── docker-compose.yaml  
-├── log.txt
 ├── pytest.ini
 ├── requirements.txt
 └── README.md    
@@ -43,3 +45,24 @@ PC4-Proyecto-14/
 
 - `feature/pipeline`: Se implementa un pipeline para poder ejecutar mediante un job
 
+Tengo un problema con los test que no se pueden ejecutar de manera correcta pero al funcionar, segun mi pipeline deberia correr correctamente.
+
+## Configuración Inicial
+
+Para trabajar con el proyecto, realiza los pasos a continuacion.
+
+1. **Clonar el repositorio**
+    ```bash
+    git clone https://github.com/edysaul20000/Examenfinal-DesarrolloSoftware.git
+    cd Examenfinal-DesarrolloSoftware/
+    ```
+
+2. **Crear y activar el entorno virtual**
+    ```bash
+    python3 -m venv EF
+    source EF/bin/activate
+    ```
+3. **Ejecutar los test**
+   ```bash
+   pytest
+   ```
