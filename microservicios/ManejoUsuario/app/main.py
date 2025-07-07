@@ -2,14 +2,14 @@ from fastapi import FastAPI, HTTPException
 
 app = FastAPI()
 
-usuarios= {}
-user_id_seq = 1
+usuarios = {}
+usuarios_id_seq = 1
 
 @app.post("/usuarios")
 def creacion_usuario(nombre: str):
     global usuario_id_seq
     usuario = {"id": usuario_id_seq, "nombre": nombre}
-    usuario[usuario_id_seq] = usuario
+    usuarios[usuario_id_seq] = usuario
     usuario_id_seq += 1
     return usuario
 
