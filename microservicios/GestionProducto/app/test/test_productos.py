@@ -1,6 +1,6 @@
 import pytest
 from fastapi.testclient import TestClient
-from app.main import app
+from main import app
 
 client = TestClient(app)
 
@@ -8,7 +8,7 @@ def test_crear_producto():
     response = client.post("/productos", params={"nombre": "Laptop", "precio": 1000.00})
     assert response.status_code == 200
     assert response.json()["nombre"] == "Laptop"
-    assert response.json()["price"] == 1000.00
+    assert response.json()["precio"] == 1000.00
 
 def test_obtener_producto():
     res = client.post("/productos", params={"nombre": "Smartphone", "precio": 500.00})

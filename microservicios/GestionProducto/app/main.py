@@ -16,7 +16,7 @@ def crear_producto(nombre: str, precio: float):
 
 @app.get("/productos/{producto_id}")
 
-def listar_producto(producto_id: int):
+def obtener_producto(producto_id: int):
     if producto_id in productos:
         return productos[producto_id]
     raise HTTPException(status_code=404, detail="Producto no encontrado")

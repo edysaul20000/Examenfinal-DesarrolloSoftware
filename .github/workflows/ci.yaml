@@ -1,1 +1,37 @@
 name: CI-pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test-microservicios:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout codigo
+        uses: actions/checkout@v4
+
+      - name: Instalar dependencias del sistema
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3 python3-pip
+
+      - name: Instalar dependencias usuarios
+        run: |
+          pip install -r microservicios/ManejoUsuario/requirements.txt
+          pip install fastapi uvicorn pytest
+
+      - name: Instalar dependencias productos
+        run: |
+          pip install -r microservicios/GestionProducto/requirements.txt
+          pip install fastapi uvicorn pytest
+
+      - name: Ejecutar tests usuarios
+        run: |
+          pytest microservicios/ManejoUsuario/app/test
+
+      - name: Ejecutar tests productos
+        run: |
+          pytest microservicio/GestionProducto/app/test
