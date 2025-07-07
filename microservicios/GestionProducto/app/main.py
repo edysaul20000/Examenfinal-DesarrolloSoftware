@@ -6,6 +6,7 @@ productos = {}
 producto_id_seq = 1
 
 @app.post("/productos")
+
 def crear_producto(nombre: str, precio: float):
     global producto_id_seq
     producto = {"id": producto_id_seq, "nombre": nombre, "precio": precio}
@@ -14,12 +15,14 @@ def crear_producto(nombre: str, precio: float):
     return producto
 
 @app.get("/productos/{producto_id}")
+
 def listar_producto(producto_id: int):
     if producto_id in productos:
         return productos[producto_id]
     raise HTTPException(status_code=404, detail="Producto no encontrado")
 
 @app.put("/productos/{producto_id}")
+
 def actualizar_producto(producto_id: int, nombre: str = None, precio: float = None):
     if producto_id not in productos:
         raise HTTPException(status_code=404, detail="Producto no encontrado")
